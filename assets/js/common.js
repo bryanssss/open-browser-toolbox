@@ -1,3 +1,12 @@
-(()=>{const root=document.documentElement;const saved=localStorage.getItem('ot-theme');if(saved)root.dataset.theme=saved;window.toggleTheme=()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';localStorage.setItem('ot-theme',root.dataset.theme)};window.escapeHtml=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));window.copyText=async t=>{try{await navigator.clipboard.writeText(String(t));return true}catch{return false}};window.downloadBlob=(name,data,type='text/plain')=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};window.fmt=(n,d=2)=>Number.isFinite(Number(n))?new Intl.NumberFormat('en-GB',{maximumFractionDigits:d}).format(Number(n)):'—';document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b){const el=document.querySelector(b.dataset.copy);copyText(el?.value??el?.textContent??'').then(ok=>{const old=b.textContent;b.textContent=ok?'Copied':'Copy failed';setTimeout(()=>b.textContent=old,1200)})}})})();
-
+(()=>{
+const root=document.documentElement;
+const saved=localStorage.getItem('ot-theme');
+if(saved)root.dataset.theme=saved;
+window.toggleTheme=()=>{root.dataset.theme=root.dataset.theme==='light'?'dark':'light';localStorage.setItem('ot-theme',root.dataset.theme)};
+window.escapeHtml=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+window.copyText=async t=>{try{await navigator.clipboard.writeText(String(t));return true}catch{return false}};
+window.downloadBlob=(name,data,type='text/plain')=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+window.fmt=(n,d=2)=>Number.isFinite(Number(n))?new Intl.NumberFormat('en-GB',{maximumFractionDigits:d}).format(Number(n)):'—';
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const el=document.querySelector(b.dataset.copy);copyText(el?.value??el?.textContent??'').then(ok=>{const old=b.textContent;b.textContent=ok?'Copied':'Copy failed';setTimeout(()=>b.textContent=old,1200)})});
+})();
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register((location.pathname.includes('/tools/')?'../../':'./')+'service-worker.js').catch(()=>{}));

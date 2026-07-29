@@ -1,5 +1,16 @@
 # 🧰 OpenToolbox — 84 Free Browser Tools
 
+
+## Version 2 interface update
+
+- Added the new green OpenToolbox logo throughout the site.
+- Fixed the JavaScript loading order that could leave the homepage tool grid empty.
+- Added all 84 tools as static, search-engine-visible cards on the homepage.
+- Added live search, category filters and favourites without hiding the library when JavaScript is unavailable.
+- Added detailed purpose, use-case, step-by-step and limitations sections to every tool page.
+- Added prominent PayPal support buttons on the homepage and tool pages.
+- Updated the colour system to match the supplied logo.
+
 A fast, privacy-focused collection of **84 original browser tools** for text, development, design, conversion and everyday calculations.
 
 [![Open OpenToolbox](https://img.shields.io/badge/OpenToolbox-Use%20Online-67e8b3?style=for-the-badge&logo=googlechrome&logoColor=07111f)](https://bryanssss.github.io/open-browser-toolbox/)
