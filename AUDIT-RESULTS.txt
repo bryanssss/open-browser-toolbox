@@ -1,0 +1,5 @@
+OpenToolbox layout audit
+
+Tested 84 tool pages at desktop and mobile sizes, plus the homepage.
+Issues found: 0
+No label/input overlaps, field-spacing failures, tool-render failures or horizontal overflow were detected.

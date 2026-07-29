@@ -1,3 +1,16 @@
+# OpenToolbox Spacing and Design Polish Update
+
+This version improves spacing throughout every interactive tool and the homepage search area. It also updates the offline cache so returning visitors receive the corrected design.
+
+## Included fixes
+
+- Increased the space between every field label and its input, select or textarea.
+- Added consistent vertical separation between consecutive fields across all 84 tools.
+- Improved row spacing in multi-column and mobile forms.
+- Increased the space beneath the homepage search label.
+- Increased the space between the search box and category filters.
+- Audited desktop and mobile layouts for overlaps and horizontal overflow.
+
 # Replace Your Existing GitHub Desktop Project
 
 This update fixes the empty homepage and adds the supplied logo, all 84 homepage tool cards, detailed tool explanations and prominent PayPal donation buttons.
