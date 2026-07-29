@@ -1,0 +1,27 @@
+name: Validate static site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/common.js
+          node --check assets/js/home.js
+          node --check assets/js/tools-data.js
+          node --check assets/js/tool-engine.js
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -f sitemap.xml
+          test -f robots.txt
+          test -f .nojekyll

@@ -1,0 +1,16 @@
+{
+  "name": "OpenToolbox \u2014 Free Browser Tools",
+  "short_name": "OpenToolbox",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#07111f",
+  "description": "84 free browser tools for text, development, design, conversion and calculation.",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

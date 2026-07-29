@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bryanssss.github.io/open-browser-toolbox/sitemap.xml
