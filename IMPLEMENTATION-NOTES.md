@@ -1,6 +1,33 @@
-# OpenToolbox V5.1 Implementation Notes
+# OpenToolbox V5.1.2 Implementation Notes
 
 This release retains all 122 browser-based utilities and completes a repository-wide dark-mode, design-system and functional regression audit while preserving the static HTML, CSS and JavaScript architecture.
+
+
+## V5.1.2 browser-test selector correction
+
+The second failed GitHub Actions run came from an unscoped Playwright role query. The homepage contains an `About` link in both the primary navigation and the footer. Playwright correctly treats an unscoped locator that matches both elements as ambiguous, so the test stopped even though the mobile menu itself was visible and working.
+
+The corrected test now:
+
+- creates a locator for the `#mainNav` navigation landmark;
+- checks that the menu has the `open` class;
+- searches for primary links only inside that navigation landmark;
+- verifies that every expected navigation control appears exactly once;
+- separately verifies the theme and settings buttons inside the same landmark.
+
+No public tool code or design component required changing for this correction.
+
+## V5.1.1 continuous-integration correction
+
+The failed GitHub Actions run was caused by the repository validator recursively treating HTML files installed by Playwright inside `node_modules` as OpenToolbox website pages. Those third-party files are not part of the published GitHub Pages site.
+
+This maintenance update:
+
+- limits site-page validation to repository-owned HTML files;
+- ignores dependency and generated-report directories;
+- validates that the saved-theme bootstrap runs before the first stylesheet;
+- runs static validation before installing Playwright dependencies;
+- keeps the full browser suite unchanged after dependency and Chromium installation.
 
 
 ## V5.1 design and reliability work

@@ -1,4 +1,8 @@
-# OpenToolbox V5.1 Update Instructions
+# OpenToolbox V5.1.2 Update Instructions
+
+This maintenance update fixes the remaining Playwright mobile-navigation assertion without changing the 122 public tools or the corrected dark-mode design.
+
+## Full V5.1 Update Instructions
 
 ## What this package does
 
@@ -17,7 +21,7 @@ This update expands OpenToolbox from 84 to 122 tools and adds local preferences,
 9. Use this commit summary:
 
 ```text
-OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
+OpenToolbox V5.1.2: fix scoped mobile navigation browser test
 ```
 
 10. Select **Commit to main**.

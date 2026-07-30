@@ -73,11 +73,23 @@ test('mobile menu displays every primary navigation action', async ({ page }) =>
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
   await page.locator('[data-menu-toggle]').click();
+
+  const navigation = page.locator('#mainNav');
+  await expect(navigation).toHaveClass(/open/);
+
   for (const label of ['All tools', 'About', 'My Toolbox', 'GitHub', 'Donate']) {
-    await expect(page.getByRole('link', { name: label, exact: true })).toBeVisible();
+    const link = navigation.getByRole('link', { name: label, exact: true });
+    await expect(link).toHaveCount(1);
+    await expect(link).toBeVisible();
   }
-  await expect(page.getByRole('button', { name: /Switch to|theme/i })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Open settings' })).toBeVisible();
+
+  const themeButton = navigation.getByRole('button', { name: /Switch to (?:light|dark) theme/i });
+  await expect(themeButton).toHaveCount(1);
+  await expect(themeButton).toBeVisible();
+
+  const settingsButton = navigation.getByRole('button', { name: 'Open settings', exact: true });
+  await expect(settingsButton).toHaveCount(1);
+  await expect(settingsButton).toBeVisible();
 });
 
 test('all 122 tool routes initialise without JavaScript failures', async ({ page }, testInfo) => {

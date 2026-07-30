@@ -1,5 +1,21 @@
 # Changelog
 
+## V5.1.2 — Browser-Test Selector Fix
+
+- Fixed the mobile-navigation Playwright test matching duplicate links elsewhere on the page, such as the footer’s `About` link
+- Scoped every navigation assertion to the `#mainNav` landmark
+- Added one-element count checks for all primary navigation links, the theme control and the settings control
+- Kept the public website and all 122 tools unchanged because the failure was in the automated test selector, not the user interface
+
+## V5.1.1 — GitHub Actions Validation Fix
+
+- Fixed the static validator scanning third-party HTML files installed inside `node_modules`
+- Excluded generated test folders such as `playwright-report`, `test-results` and `coverage`
+- Improved the theme-bootstrap check so it verifies that the saved theme script appears before the first stylesheet
+- Moved static validation before dependency installation in GitHub Actions
+- Updated the official checkout and Node setup actions to their Node 24-based major versions
+- Verified the validator still passes when a deliberately broken HTML file exists inside `node_modules`
+
 ## V5.1 — Dark-Mode and Full Design Audit
 
 - Fixed white cards, white modals and low-contrast text appearing in dark mode

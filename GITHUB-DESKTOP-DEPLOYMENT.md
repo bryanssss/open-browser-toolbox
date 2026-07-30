@@ -42,7 +42,7 @@ open-browser-toolbox/open-browser-toolbox/index.html
 5. Enter this summary:
 
 ```text
-OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
+OpenToolbox V5.1.2: fix scoped mobile navigation browser test
 ```
 
 6. Select **Commit to main**.
@@ -74,3 +74,13 @@ This version changes the service-worker cache name. Most browsers update automat
 2. Close and reopen the tab.
 3. In Chrome DevTools, open **Application → Service Workers**.
 4. Select **Update** or **Unregister**, then reload.
+
+
+## Confirm the Fixed Test Run
+
+After pushing, open **Actions → Browser and Static Tests**. The **Run static validation** step should now report that all 131 project HTML pages apply the saved theme before CSS loads. It will no longer inspect Playwright files inside `node_modules`.
+
+
+## Confirm the Browser-Test Correction
+
+After pushing, open **Actions → Browser and Static Tests**. The mobile-navigation test now searches only inside the `#mainNav` element. This prevents the footer’s separate `About` link from creating an ambiguous Playwright locator. Both the desktop and mobile Chromium projects should continue beyond this test.

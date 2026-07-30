@@ -119,8 +119,16 @@ check(serviceWorker.includes("open-toolbox-v5-1-design-audit"), 'service worker 
 check(read('my-toolbox.html').includes('dashboard-card--wide') && read('my-toolbox.html').includes('dashboard-card--compact'), 'My Toolbox uses balanced compact and full-width cards');
 
 const htmlFiles = [];
+const ignoredValidationDirectories = new Set([
+  '.git',
+  'node_modules',
+  'playwright-report',
+  'test-results',
+  'coverage'
+]);
 function collectHtml(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory() && ignoredValidationDirectories.has(entry.name)) continue;
     const absolute = path.join(dir, entry.name);
     if (entry.isDirectory()) collectHtml(absolute);
     else if (entry.name.endsWith('.html')) htmlFiles.push(absolute);
@@ -131,7 +139,11 @@ let bootstrapCount = 0;
 let localReferenceCount = 0;
 for (const absolute of htmlFiles) {
   const html = fs.readFileSync(absolute, 'utf8');
-  if (html.includes("localStorage.getItem('ot-theme')")) bootstrapCount += 1;
+  const themeBootstrapIndex = html.indexOf("localStorage.getItem('ot-theme')");
+  const firstStylesheetIndex = html.indexOf('rel="stylesheet"');
+  if (themeBootstrapIndex !== -1 && firstStylesheetIndex !== -1 && themeBootstrapIndex < firstStylesheetIndex) {
+    bootstrapCount += 1;
+  }
   const attr = /(?:href|src)=["']([^"']+)["']/g;
   for (const match of html.matchAll(attr)) {
     const value = match[1];

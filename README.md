@@ -25,6 +25,16 @@ No installation, account or registration is required.
 | PDF Tools | 4 |
 | **Total** | **122** |
 
+## 🛠️ V5.1.2 GitHub Actions and Browser-Test Fixes
+
+- Corrected the static validator so it checks only OpenToolbox pages and ignores HTML files installed inside `node_modules`.
+- Excluded generated folders such as `playwright-report`, `test-results` and `coverage` from repository-page validation.
+- Strengthened the saved-theme test so the bootstrap script must appear before the first stylesheet.
+- Moved static validation before Playwright dependency installation.
+- Corrected the mobile-menu browser test so navigation links are searched only inside `#mainNav`, avoiding duplicate footer links such as `About`.
+- Added exact one-element checks for the menu links, theme control and settings control.
+- Updated the official GitHub checkout and Node setup actions to their Node 24-based major versions.
+
 ## 🆕 Major V5.1 Improvements
 
 ### Professional dark-mode and interface revision
@@ -162,7 +172,7 @@ The deployment itself still requires no npm build.
 9. In the summary box, enter:
 
 ```text
-OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
+OpenToolbox V5.1.2: fix scoped mobile navigation browser test
 ```
 
 10. Select **Commit to main**.
