@@ -1,8 +1,8 @@
 {
   "name": "open-browser-toolbox-tests",
   "private": true,
-  "version": "5.1.2",
-  "description": "Automated tests for the static OpenToolbox website, including scoped navigation, dark-mode and full catalogue regression checks.",
+  "version": "5.2.0",
+  "description": "Automated tests for OpenToolbox v5.2.0, including visible spacing, desktop-only full navigation, mobile menu behaviour and full catalogue regression checks.",
   "type": "module",
   "scripts": {
     "test:static": "node test-site.mjs",

@@ -34,6 +34,50 @@ test('mobile navigation opens and no horizontal overflow is present', async ({ p
   expect(overflow).toBeFalsy();
 });
 
+
+test('desktop navigation never shows the mobile menu button', async ({ page }) => {
+  for (const width of [800, 900, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    const toggle = page.locator('[data-menu-toggle]');
+    await expect(toggle).toBeHidden();
+    await expect(toggle).toHaveAttribute('aria-hidden', 'true');
+    await expect(toggle).toHaveAttribute('tabindex', '-1');
+    await expect(page.locator('#mainNav')).toBeVisible();
+    await expect(page.locator('#mainNav')).not.toHaveClass(/open/);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1);
+    expect(overflow).toBeFalsy();
+  }
+});
+
+test('shared headings, breadcrumbs and dashboard controls have deliberate spacing', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/');
+  await page.evaluate(() => {
+    localStorage.setItem('ot-history', JSON.stringify([{slug:'sentence-counter',title:'Sentence Counter',category:'Text & Content',icon:'💬',visitedAt:new Date().toISOString(),runs:1}]));
+  });
+  await page.reload();
+  const homeGap = await page.locator('#personalSections .section-head.compact').first().evaluate(el => {
+    const badge=el.querySelector('.eyebrow'); const heading=el.querySelector('h2');
+    return heading.getBoundingClientRect().top-badge.getBoundingClientRect().bottom;
+  });
+  expect(homeGap).toBeGreaterThanOrEqual(12);
+
+  await page.goto('/tools/character-counter/');
+  const breadcrumbGap = await page.evaluate(() => {
+    const breadcrumbs=document.querySelector('.breadcrumbs'); const row=document.querySelector('.tool-title-row');
+    return row.getBoundingClientRect().top-breadcrumbs.getBoundingClientRect().bottom;
+  });
+  expect(breadcrumbGap).toBeGreaterThanOrEqual(20);
+
+  await page.goto('/my-toolbox.html');
+  const buttonGap = await page.locator('.category-actions').first().evaluate(el => {
+    const buttons=[...el.querySelectorAll('button')];
+    return buttons[1].getBoundingClientRect().left-buttons[0].getBoundingClientRect().right;
+  });
+  expect(buttonGap).toBeGreaterThanOrEqual(14);
+});
+
 test('basic accessible structure is present', async ({ page }) => {
   await page.goto('/tools/heading-structure-checker/');
   await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
@@ -72,7 +116,10 @@ test('dark mode uses dark, readable surfaces throughout the interface', async ({
 test('mobile menu displays every primary navigation action', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.locator('[data-menu-toggle]').click();
+  const toggle = page.locator('[data-menu-toggle]');
+  await expect(toggle).toBeVisible();
+  await expect(toggle).toHaveAttribute('aria-hidden', 'false');
+  await toggle.click();
 
   const navigation = page.locator('#mainNav');
   await expect(navigation).toHaveClass(/open/);

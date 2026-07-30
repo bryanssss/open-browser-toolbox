@@ -44,7 +44,7 @@
 .batch-results{display:grid;gap:.65rem}.batch-row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem;border:1px solid var(--line,#dbe8e1);border-radius:.75rem}.batch-row strong,.batch-row small{display:block}.batch-row small{color:var(--muted,#607068);margin-top:.2rem}.image-result{text-align:center}.image-result img{max-width:100%;max-height:440px;border-radius:.8rem;border:1px solid var(--line,#dbe8e1)}.canvas-preview{max-width:100%;max-height:520px;border-radius:.75rem;border:1px solid var(--line,#dbe8e1)}.colour-result{min-height:150px;display:flex;align-items:center;justify-content:center;gap:1rem;border-radius:.85rem;color:#fff;text-shadow:0 1px 4px #000;padding:1rem}.inline-swatch{display:inline-block;width:1rem;height:1rem;border:1px solid rgba(0,0,0,.35);border-radius:.25rem;vertical-align:-.15rem;margin-right:.25rem}.heading-outline{list-style:none;padding:0}.heading-outline li{padding:.45rem .55rem;border-bottom:1px solid var(--line,#dbe8e1)}.heading-outline .level-2{padding-left:1.5rem}.heading-outline .level-3{padding-left:2.5rem}.heading-outline .level-4{padding-left:3.5rem}.heading-outline .level-5{padding-left:4.5rem}.heading-outline .level-6{padding-left:5.5rem}.success{padding:.8rem;border-radius:.7rem;background:#e7f8ee;color:#11623b;font-weight:700}
 .prose{max-width:880px}.prose h2{margin-top:2rem}.prose table{width:100%}.page-hero{padding:4.5rem 0 2.5rem;background:var(--hero-bg,linear-gradient(135deg,#07150f,#0b2b1e));color:#fff}.page-hero h1{font-size:clamp(2.2rem,5vw,4rem);margin:.4rem 0}.page-hero p{font-size:1.1rem;max-width:760px;color:#d7e9df}.text-button{padding:.35rem}
 :focus-visible{outline:3px solid #f5c542!important;outline-offset:3px!important}
-@media(max-width:900px){.personal-grid,.dashboard-grid,.principle-grid{grid-template-columns:1fr}.dashboard-card{grid-column:auto!important}.collection-options{grid-template-columns:1fr 1fr}.field-row{grid-template-columns:1fr}.menu-toggle{display:inline-grid}.nav-links{display:none;position:absolute;top:calc(100% + .5rem);left:1rem;right:1rem;z-index:200;flex-direction:column;align-items:stretch;padding:.8rem;background:var(--card,#fff);border:1px solid var(--line,#dbe8e1);border-radius:.9rem;box-shadow:0 18px 45px rgba(0,0,0,.2)}.nav-links.open{display:flex}.nav{position:relative}.nav-links a,.nav-links button{width:100%;justify-content:flex-start}}
+@media(max-width:900px){.personal-grid,.dashboard-grid,.principle-grid{grid-template-columns:1fr}.dashboard-card{grid-column:auto!important}.collection-options{grid-template-columns:1fr 1fr}.field-row{grid-template-columns:1fr}}
 @media(max-width:620px){.mini-tool-grid,.settings-grid,.collection-options{grid-template-columns:1fr}.inline-form,.batch-row,.collection-head,.category-setting,.history-row{align-items:stretch;flex-direction:column}.diff-row{grid-template-columns:1.5rem 1fr}.diff-row pre:last-child{grid-column:2}.page-hero{padding-top:3rem}.tool-title-row .btn{width:100%}.keyboard-hint{font-size:.82rem}.settings-dialog{max-width:calc(100vw - 1rem)}}
 
 
@@ -112,3 +112,193 @@ table{color:var(--text)}th{color:var(--text);font-weight:800}td{color:var(--mute
 /* Balanced My Toolbox layout */
 .dashboard-grid>.dashboard-card{grid-column:auto}
 .dashboard-grid>.dashboard-card--wide{grid-column:1/-1}
+
+/* OpenToolbox v5.2 — verified spacing, responsive navigation and control layout */
+:root{
+ --ot-label-gap:.85rem;
+ --ot-heading-gap:1.15rem;
+ --ot-control-gap:1rem;
+ --ot-section-gap:1.5rem;
+}
+
+/* A label, badge or breadcrumb must never visually touch the heading below it. */
+.section-head.compact{
+ align-items:flex-start;
+ gap:var(--ot-section-gap);
+ margin-bottom:1.4rem;
+}
+.section-head.compact>div:first-child,
+.panel-heading>div:first-child,
+.dialog-head>div:first-child{
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ gap:var(--ot-label-gap);
+ min-width:0;
+}
+.section-head.compact h2,
+.panel-heading h2,
+.dialog-head h2{
+ margin:0!important;
+ line-height:1.2;
+}
+.section-head.compact>a,
+.section-head.compact>button,
+.section-head.compact>span{
+ flex:0 0 auto;
+ margin-top:.2rem;
+}
+.tool-hero .breadcrumbs{
+ margin:0 0 1.75rem;
+}
+.tool-title-row{
+ align-items:center;
+ gap:2rem;
+}
+.tool-title-row>div:first-child{
+ min-width:0;
+}
+.tool-title-row .eyebrow+h1{
+ margin-top:1.05rem!important;
+}
+.content-panel .content-kicker+h2{
+ margin-top:.85rem!important;
+}
+.panel-heading{
+ align-items:flex-start;
+ padding-bottom:1.35rem;
+ margin-bottom:1.55rem;
+}
+.sidebar-logo+h3{
+ margin-top:1.55rem;
+}
+
+/* Give every adjacent control an obvious, professional separation. */
+.category-setting,
+.collection-head,
+.history-row{
+ gap:1.4rem;
+}
+.category-setting{
+ padding:1rem 0;
+}
+.category-actions,
+.collection-actions{
+ display:flex;
+ align-items:center;
+ justify-content:flex-end;
+ gap:var(--ot-control-gap)!important;
+ flex:0 0 auto;
+ flex-wrap:nowrap;
+}
+.category-actions .icon-btn,
+.collection-actions .icon-btn{
+ flex:0 0 48px;
+ width:48px;
+ height:48px;
+ min-width:48px;
+ min-height:48px;
+}
+.icon-btn:disabled,.btn:disabled{
+ opacity:.4;
+ cursor:not-allowed;
+ transform:none!important;
+ box-shadow:none!important;
+}
+.dashboard-card,
+.personal-grid>section{
+ padding:1.6rem;
+}
+
+/* Desktop always shows the complete navigation and never shows a hamburger. */
+.menu-toggle{
+ display:none!important;
+ visibility:hidden!important;
+ pointer-events:none!important;
+ position:absolute!important;
+}
+@media(min-width:761px){
+ .nav{position:relative}
+ .nav-links{
+  display:flex!important;
+  position:static!important;
+  inset:auto!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  margin-left:auto!important;
+  padding:0!important;
+  gap:clamp(.7rem,1.25vw,1.35rem)!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+ }
+ .nav-links a,.nav-links button{
+  display:inline-flex!important;
+  width:auto!important;
+  justify-content:center!important;
+ }
+}
+@media(min-width:761px) and (max-width:1040px){
+ .wrap{width:min(1240px,calc(100% - 24px))}
+ .nav{gap:.7rem}
+ .brand{font-size:1rem;gap:.5rem}
+ .brand-logo{width:40px;height:40px}
+ .nav-links{gap:.62rem!important}
+ .nav-links a{font-size:.8rem}
+ .nav-donate{padding:.42rem .68rem}
+ .icon-btn{width:40px;height:40px;min-width:40px;min-height:40px}
+}
+
+/* The hamburger and collapsible menu exist only on real mobile widths. */
+@media(max-width:760px){
+ .nav{position:relative;gap:.75rem}
+ .brand{margin-right:auto}
+ .menu-toggle{
+  display:inline-grid!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  position:static!important;
+  margin-left:auto;
+  flex:0 0 auto;
+ }
+ .nav-links{
+  display:none!important;
+  position:absolute!important;
+  top:calc(100% + .7rem)!important;
+  left:0!important;
+  right:0!important;
+  z-index:200!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:.55rem!important;
+  margin:0!important;
+  padding:.9rem!important;
+  background:var(--card)!important;
+  border:1px solid var(--line)!important;
+  border-radius:1rem!important;
+  box-shadow:0 22px 55px rgba(0,0,0,.42)!important;
+ }
+ .nav-links.open{display:flex!important}
+ .nav-links a,.nav-links button,.nav-links .icon-btn{
+  display:flex!important;
+  width:100%!important;
+  min-height:46px!important;
+  justify-content:flex-start!important;
+  padding:.72rem .9rem!important;
+  border-radius:.72rem!important;
+ }
+ .nav-links a:not(.nav-donate){color:var(--text)!important}
+ .tool-title-row{align-items:flex-start}
+ .category-setting,.collection-head,.history-row{align-items:stretch}
+ .category-actions,.collection-actions{width:100%;justify-content:flex-end}
+ .dashboard-card,.personal-grid>section{padding:1.2rem}
+}
+@media(max-width:620px){
+ .section-head.compact{gap:1rem}
+ .section-head.compact>a,.section-head.compact>button,.section-head.compact>span{margin-top:0}
+ .tool-hero .breadcrumbs{margin-bottom:1.35rem}
+ .tool-title-row .eyebrow+h1{margin-top:.9rem!important}
+ .category-actions .icon-btn,.collection-actions .icon-btn{flex-basis:46px;width:46px;height:46px;min-width:46px;min-height:46px}
+}
+

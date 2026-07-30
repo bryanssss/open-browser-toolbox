@@ -113,9 +113,12 @@ for (const file of jsFiles) {
 const css = read('assets/css/styles.css');
 check((css.match(/--card\s*:/g) || []).length >= 2, 'dark and light themes both define the card surface');
 check((css.match(/--soft\s*:/g) || []).length >= 2, 'dark and light themes both define the soft surface');
-check(css.includes('.nav-links.open a,.nav-links.open button{display:flex!important}'), 'mobile navigation explicitly reveals all links when opened');
+check(css.includes('@media(min-width:761px)') && /\.menu-toggle\s*\{[\s\S]*?display:none!important/.test(css), 'desktop navigation explicitly hides the mobile menu control');
+check(css.includes('@media(max-width:760px)') && css.includes('.nav-links.open{display:flex!important}'), 'mobile navigation explicitly opens only at the mobile breakpoint');
+check(css.includes('.section-head.compact>div:first-child') && css.includes('gap:var(--ot-label-gap)'), 'compact section labels and headings use a shared vertical gap');
+check(css.includes('.category-actions,\n.collection-actions') && css.includes('gap:var(--ot-control-gap)!important'), 'grouped dashboard controls use a shared horizontal gap');
 check(css.includes('.inline-swatch{') && !css.includes('.swatch{display:inline-block'), 'compact colour chips do not override palette swatches');
-check(serviceWorker.includes("open-toolbox-v5-1-design-audit"), 'service worker cache version is updated for the design revision');
+check(serviceWorker.includes("open-toolbox-v5-2-0-visible-layout-fix"), 'service worker cache version is updated for the layout revision');
 check(read('my-toolbox.html').includes('dashboard-card--wide') && read('my-toolbox.html').includes('dashboard-card--compact'), 'My Toolbox uses balanced compact and full-width cards');
 
 const htmlFiles = [];

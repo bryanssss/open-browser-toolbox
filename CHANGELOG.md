@@ -1,5 +1,27 @@
 # Changelog
 
+## V5.2.0 — Visible Spacing, Desktop Menu Removal and Cache Refresh
+
+- Rebuilt the shared spacing rules with larger, measurable gaps.
+- Hid the hamburger on desktop through CSS, inline critical CSS and JavaScript accessibility state.
+- Restricted collapsible navigation to widths of 760 px and below.
+- Added versioned CSS/JavaScript URLs to all 131 HTML pages.
+- Added the `data-build="5.2.0"` deployment marker and `VERSION.txt`.
+- Updated the service-worker cache name to force replacement of old assets.
+- Rechecked all 122 tool initialisations and representative calculations in Chromium.
+
+## V5.1.3 — Layout, Spacing and Responsive Navigation Audit
+
+- Added consistent vertical spacing between section badges, labels and headings across the homepage, tool pages and My Toolbox
+- Added clear spacing between breadcrumbs and tool-title content on all 122 tool routes
+- Added consistent horizontal gaps between category and collection ordering buttons
+- Disabled unavailable first/last movement controls to prevent confusing no-op actions
+- Restricted the hamburger menu to screens 760 CSS pixels wide or narrower
+- Kept the full navigation visible on desktop and tablet layouts, including high-zoom desktop views where space permits
+- Added mobile-menu close behaviour for outside clicks, navigation selection, Escape and breakpoint changes
+- Added responsive-navigation, spacing and overflow regression tests
+- Updated the offline cache version so the revised CSS and JavaScript replace older cached files
+
 ## V5.1.2 — Browser-Test Selector Fix
 
 - Fixed the mobile-navigation Playwright test matching duplicate links elsewhere on the page, such as the footer’s `About` link

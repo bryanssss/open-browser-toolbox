@@ -1,0 +1,24 @@
+{
+  "version": "5.2.0",
+  "toolPagesInitialised": 122,
+  "initialisationFailures": [],
+  "pageErrors": [],
+  "representativeChecks": [
+    {
+      "tool": "character-counter",
+      "result": "12\nCharacters\n11\nNo spaces\n2\nWords\n1\nLines"
+    },
+    {
+      "tool": "base64-encoder-decoder",
+      "result": "SGVsbG8="
+    },
+    {
+      "tool": "percentage-calculator",
+      "result": "50"
+    },
+    {
+      "tool": "json-formatter",
+      "result": "{\n  \"a\": 1\n}"
+    }
+  ]
+}

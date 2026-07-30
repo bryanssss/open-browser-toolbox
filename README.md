@@ -25,17 +25,26 @@ No installation, account or registration is required.
 | PDF Tools | 4 |
 | **Total** | **122** |
 
-## 🛠️ V5.1.2 GitHub Actions and Browser-Test Fixes
+## 🛠️ V5.2.0 Visible Layout and Navigation Fix
 
-- Corrected the static validator so it checks only OpenToolbox pages and ignores HTML files installed inside `node_modules`.
-- Excluded generated folders such as `playwright-report`, `test-results` and `coverage` from repository-page validation.
-- Strengthened the saved-theme test so the bootstrap script must appear before the first stylesheet.
-- Moved static validation before Playwright dependency installation.
-- Corrected the mobile-menu browser test so navigation links are searched only inside `#mainNav`, avoiding duplicate footer links such as `About`.
-- Added exact one-element checks for the menu links, theme control and settings control.
-- Updated the official GitHub checkout and Node setup actions to their Node 24-based major versions.
+This release was rebuilt to make the requested changes unmistakable in the deployed files and to prevent an old service-worker cache from hiding the new design.
+
+- Increased the visible space between pills, labels and headings on the homepage, My Toolbox, settings dialogs, content panels and every tool page.
+- Increased the gap between breadcrumbs, category badges and tool titles on all 122 tool routes.
+- Increased the spacing between category and collection movement buttons and standardised their 48 × 48 px desktop size.
+- Removed the hamburger from desktop and tablet layouts. It now exists only at **760 CSS pixels and below**.
+- Added JavaScript enforcement so the desktop hamburger is hidden, removed from keyboard navigation and marked `aria-hidden`.
+- Added a critical inline navigation rule to all 131 HTML pages so the desktop hamburger remains hidden even while older CSS is being replaced.
+- Added `?v=5.2.0` to shared CSS and JavaScript references on all 131 pages to force browsers and GitHub Pages to load the new files.
+- Updated the service-worker cache to `open-toolbox-v5-2-0-visible-layout-fix`.
+- Added `data-build="5.2.0"` to every HTML page so the deployed version can be verified in page source.
+- Re-ran static validation and browser-based initialisation checks across all 122 tools.
 
 ## 🆕 Major V5.1 Improvements
+
+### V5.2.0 design consistency
+
+The shared CSS and JavaScript now enforce the same spacing and navigation behaviour everywhere instead of relying on page-specific fixes. Desktop layouts no longer show a redundant menu button, while mobile layouts retain the full collapsible menu.
 
 ### Professional dark-mode and interface revision
 
@@ -172,7 +181,7 @@ The deployment itself still requires no npm build.
 9. In the summary box, enter:
 
 ```text
-OpenToolbox V5.1.2: fix scoped mobile navigation browser test
+OpenToolbox V5.2.0: visible spacing, desktop menu removal and cache refresh
 ```
 
 10. Select **Commit to main**.

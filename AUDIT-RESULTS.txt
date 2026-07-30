@@ -1,66 +1,50 @@
-OpenToolbox V5.1.2 Validation Results
-=================================
+OpenToolbox V5.2.0 — Visible Layout and Functionality Audit
+===========================================================
 
-Release target: 122 browser tools across 7 categories
-Validation date: 30 July 2026
+STATIC VALIDATION
+-----------------
+PASS: 122 catalogue entries
+PASS: 122 individual tool routes
+PASS: 131 project HTML pages
+PASS: category totals match
+PASS: all tool slugs are unique and URL-safe
+PASS: all required metadata and page structures exist
+PASS: all shared JavaScript files parse
+PASS: service-worker JavaScript parses
+PASS: 3,818 internal HTML links and assets checked
+PASS: saved theme bootstrap appears before CSS on all 131 pages
+PASS: desktop hamburger hide rule present
+PASS: mobile menu opens only at 760 px and below
+PASS: shared vertical and horizontal spacing tokens present
+PASS: service-worker cache updated
 
-PASSED
-------
-- 122 unique tool definitions found
-- 122 matching static tool routes found
-- Category totals verified:
-  - Text & Content: 19
-  - Developer Tools: 24
-  - Design & Media: 21
-  - Converters: 21
-  - Calculators: 28
-  - Accessibility: 5
-  - PDF Tools: 4
-- All tool routes include required metadata, canonical URLs and shared scripts
-- Homepage contains all 122 searchable tool cards
-- All tool routes are listed in sitemap.xml
-- All tool routes are covered by the service-worker offline cache
-- All project JavaScript files pass Node.js syntax validation
-- 131 HTML pages parsed successfully
-- 3,818 local links and asset references resolve to existing files
-- Representative HTTP routes returned status 200
-- README, deployment, custom-domain, security and licence files are present
+RENDERED LAYOUT CHECKS
+----------------------
+PASS: desktop hamburger computed display = none at 1,792 px
+PASS: mobile hamburger computed display = grid at 390 px
+PASS: mobile navigation computed display = flex after opening
+PASS: homepage compact label-to-heading gap = approximately 13.6 px
+PASS: tool breadcrumb-to-title-row gap = 28 px
+PASS: tool category-label-to-title gap = approximately 16.8 px
+PASS: category action-button gap = 16 px
+PASS: desktop JavaScript state: hidden, aria-hidden=true, tabindex=-1
+PASS: mobile JavaScript state: visible, aria-hidden=false, tabindex=0
+PASS: Escape closes the mobile navigation
 
+TOOL FUNCTIONALITY CHECKS
+-------------------------
+PASS: all 122 tool interfaces initialised in headless Chromium
+PASS: 0 tool initialisation failures
+PASS: 0 browser page errors during initialisation
+PASS: Character Counter returned 12 characters, 11 non-space characters, 2 words and 1 line for “Hello world!”
+PASS: Base64 Encoder returned SGVsbG8= for “Hello”
+PASS: Percentage Calculator returned 50 for 25% of 200
+PASS: JSON Formatter formatted {"a":1}
 
-CONTINUOUS-INTEGRATION FIX VERIFIED
------------------------------------
-- Static validation excludes node_modules and generated test-report folders
-- Theme bootstrap is verified to appear before the first stylesheet on all 131 project HTML pages
-- A deliberately broken third-party HTML fixture inside node_modules was ignored as expected
-- Static validation completes before Playwright dependencies are installed
-- The GitHub Actions workflow uses current Node 24-based official checkout and setup actions
-
-
-BROWSER-TEST SELECTOR FIX VERIFIED
-----------------------------------
-- The mobile-navigation test is scoped to #mainNav
-- The duplicated footer About link can no longer make the primary-navigation locator ambiguous
-- All five primary navigation links are required to appear exactly once inside #mainNav
-- The theme and Open settings buttons are required to appear exactly once inside #mainNav
-- The public website files and all 122 tools remain unchanged by this test-only correction
-- Reproduced with headless Chromium for both desktop and Pixel 7-style mobile contexts: page-wide About count 2, #mainNav About count 1, all scoped controls visible
-
-AUTOMATED BROWSER TESTS INCLUDED
---------------------------------
-The repository includes Playwright tests for:
-- Homepage search and category filtering
-- Ctrl/Command + K search focus
-- Ctrl/Command + Enter tool execution
-- New finance, image, PDF and accessibility tool initialisation
-- Mobile navigation
-- Horizontal overflow checks
-- Skip links, landmarks and labelled navigation
-
-The browser suite runs automatically in GitHub Actions after the update is pushed.
-
-SCOPE NOTES
------------
-- PDF tools perform lightweight local structural inspection, not PDF editing.
-- Shared navigation/settings controls have five language options; detailed tool copy remains English.
-- YAML, TOML, SQL and JavaScript helpers intentionally target common lightweight use cases.
-- Batch downloads may require browser permission for multiple file downloads.
+CACHE/DEPLOYMENT PROTECTION
+---------------------------
+PASS: all 131 pages include data-build="5.2.0"
+PASS: all shared CSS/JavaScript references use ?v=5.2.0
+PASS: every page includes a critical mobile-only hamburger rule
+PASS: service-worker cache name is open-toolbox-v5-2-0-visible-layout-fix
+PASS: VERSION.txt included for manual verification

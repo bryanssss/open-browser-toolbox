@@ -10,6 +10,7 @@
   const read=(key,fallback)=>{try{const v=localStorage.getItem(key);return v===null?fallback:JSON.parse(v)}catch{return fallback}};
   const write=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value));return true}catch{return false}};
   const settings=Object.assign({},defaults,read(STORE.settings,{}));
+  const mobileNavQuery=window.matchMedia('(max-width: 760px)');
   const translations={
     en:{allTools:'All tools',about:'About',myToolbox:'My Toolbox',donate:'Donate',settings:'Settings',search:'Search tools',clear:'Clear',open:'Open tool',browserBased:'Browser based'},
     es:{allTools:'Todas las herramientas',about:'Acerca de',myToolbox:'Mi caja de herramientas',donate:'Donar',settings:'Ajustes',search:'Buscar herramientas',clear:'Borrar',open:'Abrir herramienta',browserBased:'En el navegador'},
@@ -113,18 +114,46 @@
     dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
   }
 
+  function closeNavigation(){
+    const nav=document.querySelector('.nav-links.open');
+    if(nav)nav.classList.remove('open');
+    const toggle=document.querySelector('[data-menu-toggle]');
+    if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation')}
+  }
+  function syncNavigationMode(){
+    const mobile=mobileNavQuery.matches;
+    const toggle=document.querySelector('[data-menu-toggle]');
+    if(toggle){
+      toggle.hidden=!mobile;
+      toggle.setAttribute('aria-hidden',String(!mobile));
+      toggle.tabIndex=mobile?0:-1;
+    }
+    if(!mobile)closeNavigation();
+  }
+  if(typeof mobileNavQuery.addEventListener==='function')mobileNavQuery.addEventListener('change',syncNavigationMode);
+  else if(typeof mobileNavQuery.addListener==='function')mobileNavQuery.addListener(syncNavigationMode);
+
   function keyboardShortcuts(e){
     const mod=e.ctrlKey||e.metaKey;
     if(mod&&e.key.toLowerCase()==='k'){e.preventDefault();const search=document.querySelector('#toolSearch');if(search){search.focus();search.select()}else location.href=pathDepth+'index.html#tools'}
     if(mod&&e.key==='Enter'){const run=document.querySelector('#run');if(run){e.preventDefault();run.click()}}
     if(e.altKey&&e.key.toLowerCase()==='h'){e.preventDefault();location.href=pathDepth+'index.html'}
-    if(e.key==='Escape'){document.querySelectorAll('dialog[open]').forEach(d=>d.close());const nav=document.querySelector('.nav-links.open');if(nav){nav.classList.remove('open');document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false')}}
+    if(e.key==='Escape'){document.querySelectorAll('dialog[open]').forEach(d=>d.close());closeNavigation()}
     if(e.key==='/'&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName||'')){const search=document.querySelector('#toolSearch');if(search){e.preventDefault();search.focus()}}
   }
 
   document.addEventListener('click',e=>{
-    const menu=e.target.closest('[data-menu-toggle]');if(menu){const nav=document.getElementById(menu.getAttribute('aria-controls')||'mainNav');const open=nav?.classList.toggle('open');menu.setAttribute('aria-expanded',String(!!open));}
-    const navLink=e.target.closest('.nav-links a');if(navLink){const nav=navLink.closest('.nav-links');nav?.classList.remove('open');document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded','false')}
+    const menu=e.target.closest('[data-menu-toggle]');
+    if(menu){
+      if(!mobileNavQuery.matches){closeNavigation();return}
+      const nav=document.getElementById(menu.getAttribute('aria-controls')||'mainNav');
+      const open=!!nav?.classList.toggle('open');
+      menu.setAttribute('aria-expanded',String(open));
+      menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+      return;
+    }
+    const navLink=e.target.closest('.nav-links a');if(navLink)closeNavigation();
+    if(mobileNavQuery.matches&&document.querySelector('.nav-links.open')&&!e.target.closest('.nav'))closeNavigation();
     const b=e.target.closest('[data-copy]');if(b){const el=document.querySelector(b.dataset.copy);copyText(el?.value??el?.textContent??'').then(ok=>{const old=b.textContent;b.textContent=ok?'Copied':'Copy failed';setTimeout(()=>b.textContent=old,1200)})}
     if(e.target.closest('#run,[data-run-tool]'))recordRun();
   },true);
@@ -132,7 +161,7 @@
   document.addEventListener('keydown',keyboardShortcuts);
 
   applySettings();
-  document.addEventListener('DOMContentLoaded',()=>{ensureSkipLink();addNavUtilities();settingsDialog();applySettings();recordVisit();restoreForm()});
+  document.addEventListener('DOMContentLoaded',()=>{ensureSkipLink();addNavUtilities();settingsDialog();applySettings();syncNavigationMode();recordVisit();restoreForm()});
 
   let installPrompt=null;
   window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();installPrompt=e;document.querySelectorAll('[data-install-app]').forEach(b=>b.hidden=false)});

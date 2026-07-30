@@ -1,7 +1,23 @@
-# OpenToolbox V5.1.2 Implementation Notes
+# OpenToolbox V5.2.0 Implementation Notes
 
 This release retains all 122 browser-based utilities and completes a repository-wide dark-mode, design-system and functional regression audit while preserving the static HTML, CSS and JavaScript architecture.
 
+
+
+## V5.2.0 visible replacement fix
+
+The previous archive did not produce a visible change for the user. This rebuild changes the actual shared files and all HTML references rather than relying only on a small appended CSS override.
+
+- Removed the earlier V5.1.3 override block and replaced it with one consolidated V5.2 layout block.
+- Increased label-to-heading gaps to approximately 13.6 px in compact homepage/dashboard panels.
+- Increased breadcrumb-to-title-row spacing to 28 px on desktop.
+- Increased category/collection action-button spacing to 16 px.
+- Added a critical mobile-only hamburger rule to every HTML page.
+- Added JavaScript desktop enforcement using `hidden`, `aria-hidden` and `tabIndex`.
+- Versioned shared assets on all 131 pages to bypass stale caches.
+- Updated the service worker and added a visible `VERSION.txt` marker.
+- Initialised all 122 tool interfaces in headless Chromium with zero initialisation failures and zero page errors.
+- Verified Character Counter, Base64, Percentage Calculator and JSON Formatter output.
 
 ## V5.1.2 browser-test selector correction
 
@@ -61,3 +77,12 @@ This maintenance update:
 - Shared interface controls are translated, while individual tool descriptions and detailed tool content remain in English.
 - Batch downloads may require the user to allow multiple downloads in their browser.
 - All preferences, favourites, collections, history and saved inputs remain in local browser storage. There is no account system or remote synchronisation.
+
+
+## V5.1.3 Layout Audit
+
+- Shared spacing tokens now separate badges, labels, headings, breadcrumbs and controls consistently.
+- The desktop navigation explicitly hides the mobile toggle and remains fully expanded from 761 CSS pixels upward.
+- The mobile navigation owns the collapsible behaviour at 760 CSS pixels and below, including outside-click, Escape and breakpoint cleanup.
+- Category and collection movement controls use dedicated action groups, visible gaps and disabled first/last states.
+- Regression tests now measure real rendered gaps, desktop/mobile visibility, overflow and navigation state.
