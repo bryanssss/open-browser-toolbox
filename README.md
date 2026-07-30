@@ -1,6 +1,10 @@
 <div align="center">
 
-<img src="assets/open-toolbox-github-banner.png" alt="OpenToolbox — 122 privacy-focused browser tools" width="100%">
+<a href="https://bryanssss.github.io/open-browser-toolbox/">
+  <img src="https://raw.githubusercontent.com/bryanssss/open-browser-toolbox/main/assets/open-toolbox-github-banner.png" alt="OpenToolbox — 122 free, privacy-focused browser tools" width="100%">
+</a>
+
+<!-- README banner file: assets/open-toolbox-github-banner.png -->
 
 # 🧰 OpenToolbox
 
@@ -27,7 +31,7 @@
 
 The project is designed for people who need quick, dependable tools without installing software, creating an account or uploading private content to an application server. Most processing happens locally on the visitor's device using standard browser APIs.
 
-### Project Principles
+### Project principles
 
 - **Free** — every tool is available without a subscription.
 - **Useful** — focused utilities for real tasks rather than demonstration-only features.
@@ -60,11 +64,11 @@ No installation, registration or account is required.
 
 ## Key Features
 
-### Fast Browser Utilities
+### Fast browser utilities
 
 Open a tool, add the required input and receive the result immediately. Each utility has its own indexable URL, clear instructions and a focused interface.
 
-### Local File Processing
+### Local file processing
 
 Supported images and PDFs are inspected or transformed through browser APIs. The project does not operate an application server that receives those files.
 
@@ -81,7 +85,7 @@ Visitors can create a personalised workspace containing:
 - Exportable and importable local settings
 - A complete local-data deletion control
 
-### Offline Availability
+### Offline availability
 
 OpenToolbox includes:
 
@@ -91,11 +95,11 @@ OpenToolbox includes:
 - Install controls where supported
 - Runtime cache refreshes for updated assets
 
-### Responsive Design
+### Responsive design
 
 The interface is designed for desktop browsers, laptops, tablets, mobile phones, touch input and keyboard-only navigation.
 
-### Light and Dark Themes
+### Light and dark themes
 
 Both themes use shared design tokens so cards, forms, buttons, dialogs, hints, result areas and dashboards remain readable and consistent.
 
@@ -144,7 +148,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [Line Ending Converter](tools/line-ending-converter/) — Convert text between LF, CRLF and CR line endings.
 
 </details>
-
 <details>
 <summary><strong>🧰 Developer Tools — 24 tools</strong></summary>
 
@@ -174,7 +177,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [CSV Delimiter Converter](tools/csv-delimiter-converter/) — Convert CSV data between comma, semicolon, tab and pipe separators.
 
 </details>
-
 <details>
 <summary><strong>🎨 Design & Media — 21 tools</strong></summary>
 
@@ -201,7 +203,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [SVG Optimizer](tools/svg-optimizer/) — Remove comments, metadata and unnecessary whitespace from SVG.
 
 </details>
-
 <details>
 <summary><strong>🔄 Converters — 21 tools</strong></summary>
 
@@ -228,7 +229,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [Base64 File Converter](tools/base64-file-converter/) — Encode files to Base64 or decode Base64 into a local file.
 
 </details>
-
 <details>
 <summary><strong>🧮 Calculators — 28 tools</strong></summary>
 
@@ -262,7 +262,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [Recurring Date Generator](tools/recurring-date-generator/) — Generate repeating dates and export them as CSV or ICS.
 
 </details>
-
 <details>
 <summary><strong>♿ Accessibility — 5 tools</strong></summary>
 
@@ -273,7 +272,6 @@ The following directory is generated from the project catalogue in `assets/js/to
 - [Screen Reader Text Reviewer](tools/screen-reader-text-reviewer/) — Find vague links, empty controls and hidden focusable elements.
 
 </details>
-
 <details>
 <summary><strong>📄 PDF Tools — 4 tools</strong></summary>
 
@@ -290,7 +288,7 @@ The following directory is generated from the project catalogue in `assets/js/to
 
 OpenToolbox is intentionally built without an application backend.
 
-### What Stays Local
+### What stays local
 
 The following are normally processed or stored only on the visitor's device:
 
@@ -306,7 +304,7 @@ The following are normally processed or stored only on the visitor's device:
 
 Local preferences use browser `localStorage`. Visitors can export, import or delete this data from **My Toolbox**.
 
-### Limited External Resources
+### Limited external resources
 
 | Tool | External resource | Purpose |
 |---|---|---|
@@ -353,7 +351,7 @@ Accessibility tools provide helpful checks, but they do not replace a complete p
 
 ## Latest Release — V5.2.0
 
-### Design and Navigation
+### Design and navigation
 
 - Improved spacing between pills, labels, headings, breadcrumbs and controls.
 - Standardised shared panel spacing across the homepage, My Toolbox and every tool page.
@@ -362,7 +360,7 @@ Accessibility tools provide helpful checks, but they do not replace a complete p
 - Improved light- and dark-theme surfaces, borders, forms, buttons and result panels.
 - Updated cache versions so GitHub Pages serves the current CSS and JavaScript.
 
-### Expanded Tool Collection
+### Expanded tool collection
 
 - Image conversion, metadata and batch-processing tools
 - Local PDF inspection utilities
@@ -384,7 +382,7 @@ Accessibility tools provide helpful checks, but they do not replace a complete p
 - Five shared-interface languages
 - Text-size and reduced-motion settings
 
-### Quality Assurance
+### Quality assurance
 
 - Static catalogue validation
 - Route and asset validation
@@ -402,7 +400,7 @@ Accessibility tools provide helpful checks, but they do not replace a complete p
 
 OpenToolbox remains a lightweight static website.
 
-### Production Stack
+### Production stack
 
 - HTML5
 - CSS3
@@ -411,7 +409,7 @@ OpenToolbox remains a lightweight static website.
 - GitHub Pages
 - Progressive Web App files
 
-### Shared Project Files
+### Shared project files
 
 | File | Purpose |
 |---|---|
@@ -506,13 +504,13 @@ Then open the local address shown in the terminal.
 
 Node.js is required only for development and testing.
 
-### Static Validation
+### Static validation
 
 ```bash
 node test-site.mjs
 ```
 
-### Browser Tests
+### Browser tests
 
 ```bash
 npm install
