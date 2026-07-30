@@ -42,7 +42,7 @@ open-browser-toolbox/open-browser-toolbox/index.html
 5. Enter this summary:
 
 ```text
-OpenToolbox V5: 122 tools, local preferences, offline upgrades and testing
+OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
 ```
 
 6. Select **Commit to main**.

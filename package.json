@@ -1,8 +1,8 @@
 {
   "name": "open-browser-toolbox-tests",
   "private": true,
-  "version": "5.0.0",
-  "description": "Optional automated tests for the static OpenToolbox website.",
+  "version": "5.1.0",
+  "description": "Automated tests for the static OpenToolbox website, including dark-mode and full catalogue regression checks.",
   "type": "module",
   "scripts": {
     "test:static": "node test-site.mjs",

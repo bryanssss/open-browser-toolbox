@@ -25,7 +25,20 @@ No installation, account or registration is required.
 | PDF Tools | 4 |
 | **Total** | **122** |
 
-## 🆕 Major V5 Improvements
+## 🆕 Major V5.1 Improvements
+
+### Professional dark-mode and interface revision
+
+- Rebuilt the dark surface tokens used by dashboard cards, settings, hints, forms and personalisation panels.
+- Removed white panels and low-contrast white-on-white text from dark mode.
+- Improved form, button, modal, focus, table and result styling across every tool page.
+- Balanced the My Toolbox dashboard so compact panels align cleanly and workflow sections use the full width.
+- Fixed the mobile navigation so every link and interface action is visible after opening the menu.
+- Prevented compact contrast-audit colour chips from overriding the main colour-palette swatches.
+- Added early theme loading and a new service-worker cache version so saved themes and design updates appear reliably.
+- Corrected source-zone handling in the Time Zone Converter and strengthened local date defaults, reset controls and large-file Data URI encoding.
+- Expanded automated regression checks for all 122 routes, dark surfaces, mobile navigation and representative tool calculations.
+
 
 This release implements the previously planned expansion while keeping the project static, browser-based and easy to deploy.
 
@@ -149,7 +162,7 @@ The deployment itself still requires no npm build.
 9. In the summary box, enter:
 
 ```text
-OpenToolbox V5: 122 tools, local preferences, offline upgrades and testing
+OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
 ```
 
 10. Select **Commit to main**.

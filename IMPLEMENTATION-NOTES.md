@@ -1,6 +1,17 @@
-# OpenToolbox V5 Implementation Notes
+# OpenToolbox V5.1 Implementation Notes
 
-This release expands the toolbox from 84 to 122 browser-based utilities while retaining the original static HTML, CSS and JavaScript architecture.
+This release retains all 122 browser-based utilities and completes a repository-wide dark-mode, design-system and functional regression audit while preserving the static HTML, CSS and JavaScript architecture.
+
+
+## V5.1 design and reliability work
+
+- Replaced missing dark-mode surface fallbacks that caused white cards and unreadable text.
+- Standardised cards, settings, inputs, buttons, results, tables, personal panels and responsive navigation.
+- Added early theme bootstrapping to every HTML route and network-first delivery for CSS and JavaScript updates.
+- Fixed the My Toolbox grid, mobile menu visibility and colour swatch class collision.
+- Corrected the Time Zone Converter so the selected source time zone is actually used.
+- Improved date defaults, clear/reset behaviour and large-file Data URI conversion.
+- Added full-catalogue browser smoke tests and dark-mode regression tests to GitHub Actions.
 
 ## Delivered in this release
 

@@ -1,13 +1,36 @@
-OpenToolbox V5 Validation Results
-=================================
+OpenToolbox V5.1 Design and Functional Audit
+============================================
 
 Release target: 122 browser tools across 7 categories
 Validation date: 30 July 2026
 
-PASSED
-------
+DESIGN ISSUES FIXED
+-------------------
+- White dashboard cards appearing in dark mode
+- White settings modal with unreadable near-white text
+- Over-bright keyboard shortcut panel on dark tool pages
+- Inconsistent card, field, result, table and button surfaces
+- Unbalanced My Toolbox dashboard layout
+- Mobile navigation opening while primary links remained hidden
+- Colour-palette swatches being overridden by a compact swatch rule
+- Saved theme being applied only after the stylesheet loaded
+- Old cached CSS and JavaScript being shown after an update
+
+FUNCTIONAL ISSUES FIXED
+-----------------------
+- Time Zone Converter now uses the selected source time zone
+- Date and datetime defaults now use the visitor's local date/time
+- Clear buttons reset text, file, select, checkbox, radio and range controls
+- Data URI file encoding now processes larger files in safe chunks
+- Empty readability input now reports zero sentences
+- Theme controls update their icon, label, pressed state and browser theme colour
+- Mobile navigation closes after selecting a link or pressing Escape
+
+VALIDATION PASSED
+-----------------
 - 122 unique tool definitions found
 - 122 matching static tool routes found
+- Every catalogue slug has a corresponding tool implementation reference
 - Category totals verified:
   - Text & Content: 19
   - Developer Tools: 24
@@ -16,32 +39,49 @@ PASSED
   - Calculators: 28
   - Accessibility: 5
   - PDF Tools: 4
-- All tool routes include required metadata, canonical URLs and shared scripts
+- All 122 tool routes include required metadata, canonical URLs and shared scripts
 - Homepage contains all 122 searchable tool cards
 - All tool routes are listed in sitemap.xml
 - All tool routes are covered by the service-worker offline cache
-- All project JavaScript files pass Node.js syntax validation
-- 131 HTML pages parsed successfully
+- All JavaScript files pass Node.js syntax validation
+- styles.css parses successfully with 324 CSS rules and zero syntax errors
+- 131 HTML pages parse successfully
+- All 131 pages contain one H1 and main#main-content
+- No duplicate static IDs were found
+- All static buttons include an explicit type or dialog value
+- All 131 pages apply the saved theme before CSS loads
 - 3,818 local links and asset references resolve to existing files
-- Representative HTTP routes returned status 200
-- README, deployment, custom-domain, security and licence files are present
+- 125 representative/root/tool HTTP routes returned status 200
+- Dark and light themes both define card, soft-panel and input surfaces
+- Compact contrast-audit chips no longer override full palette swatches
+- Service-worker cache version updated to open-toolbox-v5-1-design-audit
+
+CONTRAST CHECKS
+---------------
+- Dark primary text on dark card: 15.48:1
+- Dark muted text on dark card: 8.53:1
+- Dark accent text on page background: above 8:1
+- Light primary text on white card: 16.13:1
+- Light muted text on white card: 5.36:1
+- Light accent text on white card: 5.96:1
+- Primary button text on the light-theme green start colour: 4.70:1
 
 AUTOMATED BROWSER TESTS INCLUDED
 --------------------------------
-The repository includes Playwright tests for:
+The Playwright and GitHub Actions suite now covers:
 - Homepage search and category filtering
-- Ctrl/Command + K search focus
-- Ctrl/Command + Enter tool execution
-- New finance, image, PDF and accessibility tool initialisation
-- Mobile navigation
-- Horizontal overflow checks
+- Keyboard search and tool execution
+- Dark-mode tool panels, dashboard cards and settings modal
+- Mobile menu visibility for every primary navigation action
+- Horizontal-overflow checks
+- Full 122-route initialisation smoke test
+- Representative calculator, converter and accessibility-tool output
 - Skip links, landmarks and labelled navigation
 
-The browser suite runs automatically in GitHub Actions after the update is pushed.
-
-SCOPE NOTES
------------
-- PDF tools perform lightweight local structural inspection, not PDF editing.
-- Shared navigation/settings controls have five language options; detailed tool copy remains English.
-- YAML, TOML, SQL and JavaScript helpers intentionally target common lightweight use cases.
-- Batch downloads may require browser permission for multiple file downloads.
+LOCAL BROWSER-RUN NOTE
+----------------------
+The execution environment used to prepare this package blocks Chromium from
+opening localhost and file URLs with ERR_BLOCKED_BY_ADMINISTRATOR. The live
+Playwright run therefore could not be executed locally here. The test suite is
+valid JavaScript, is included in the repository, and runs in GitHub Actions
+using an installed Chromium browser after the repository is pushed.

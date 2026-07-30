@@ -1,4 +1,4 @@
-# OpenToolbox V5 Update Instructions
+# OpenToolbox V5.1 Update Instructions
 
 ## What this package does
 
@@ -17,7 +17,7 @@ This update expands OpenToolbox from 84 to 122 tools and adds local preferences,
 9. Use this commit summary:
 
 ```text
-OpenToolbox V5: 122 tools, local preferences, offline upgrades and testing
+OpenToolbox V5.1: dark-mode design audit, 122 tools and stronger testing
 ```
 
 10. Select **Commit to main**.

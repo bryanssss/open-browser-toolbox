@@ -107,6 +107,45 @@ for (const file of jsFiles) {
   }
 }
 
+
+
+// Design-system regression checks added after the v5.1 dark-mode audit.
+const css = read('assets/css/styles.css');
+check((css.match(/--card\s*:/g) || []).length >= 2, 'dark and light themes both define the card surface');
+check((css.match(/--soft\s*:/g) || []).length >= 2, 'dark and light themes both define the soft surface');
+check(css.includes('.nav-links.open a,.nav-links.open button{display:flex!important}'), 'mobile navigation explicitly reveals all links when opened');
+check(css.includes('.inline-swatch{') && !css.includes('.swatch{display:inline-block'), 'compact colour chips do not override palette swatches');
+check(serviceWorker.includes("open-toolbox-v5-1-design-audit"), 'service worker cache version is updated for the design revision');
+check(read('my-toolbox.html').includes('dashboard-card--wide') && read('my-toolbox.html').includes('dashboard-card--compact'), 'My Toolbox uses balanced compact and full-width cards');
+
+const htmlFiles = [];
+function collectHtml(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const absolute = path.join(dir, entry.name);
+    if (entry.isDirectory()) collectHtml(absolute);
+    else if (entry.name.endsWith('.html')) htmlFiles.push(absolute);
+  }
+}
+collectHtml(root);
+let bootstrapCount = 0;
+let localReferenceCount = 0;
+for (const absolute of htmlFiles) {
+  const html = fs.readFileSync(absolute, 'utf8');
+  if (html.includes("localStorage.getItem('ot-theme')")) bootstrapCount += 1;
+  const attr = /(?:href|src)=["']([^"']+)["']/g;
+  for (const match of html.matchAll(attr)) {
+    const value = match[1];
+    if (!value || value.startsWith('#') || /^(?:https?:|mailto:|tel:|data:|javascript:)/i.test(value)) continue;
+    localReferenceCount += 1;
+    const clean = value.split('#')[0].split('?')[0];
+    const candidate = path.resolve(path.dirname(absolute), clean);
+    const exists = fs.existsSync(candidate) || fs.existsSync(path.join(candidate, 'index.html'));
+    if (!exists) fail(`${path.relative(root, absolute)} references missing local file ${value}`);
+  }
+}
+check(bootstrapCount === htmlFiles.length, `all ${htmlFiles.length} HTML pages apply the saved theme before CSS loads`);
+check(localReferenceCount > 1000, `${localReferenceCount} local HTML links and assets were checked`);
+
 const docsChecks = [
   ['README.md', '122'],
   ['README.md', 'privacy'],
