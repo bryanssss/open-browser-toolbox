@@ -1,5 +1,47 @@
-OpenToolbox layout audit
+OpenToolbox V5 Validation Results
+=================================
 
-Tested 84 tool pages at desktop and mobile sizes, plus the homepage.
-Issues found: 0
-No label/input overlaps, field-spacing failures, tool-render failures or horizontal overflow were detected.
+Release target: 122 browser tools across 7 categories
+Validation date: 30 July 2026
+
+PASSED
+------
+- 122 unique tool definitions found
+- 122 matching static tool routes found
+- Category totals verified:
+  - Text & Content: 19
+  - Developer Tools: 24
+  - Design & Media: 21
+  - Converters: 21
+  - Calculators: 28
+  - Accessibility: 5
+  - PDF Tools: 4
+- All tool routes include required metadata, canonical URLs and shared scripts
+- Homepage contains all 122 searchable tool cards
+- All tool routes are listed in sitemap.xml
+- All tool routes are covered by the service-worker offline cache
+- All project JavaScript files pass Node.js syntax validation
+- 131 HTML pages parsed successfully
+- 3,818 local links and asset references resolve to existing files
+- Representative HTTP routes returned status 200
+- README, deployment, custom-domain, security and licence files are present
+
+AUTOMATED BROWSER TESTS INCLUDED
+--------------------------------
+The repository includes Playwright tests for:
+- Homepage search and category filtering
+- Ctrl/Command + K search focus
+- Ctrl/Command + Enter tool execution
+- New finance, image, PDF and accessibility tool initialisation
+- Mobile navigation
+- Horizontal overflow checks
+- Skip links, landmarks and labelled navigation
+
+The browser suite runs automatically in GitHub Actions after the update is pushed.
+
+SCOPE NOTES
+-----------
+- PDF tools perform lightweight local structural inspection, not PDF editing.
+- Shared navigation/settings controls have five language options; detailed tool copy remains English.
+- YAML, TOML, SQL and JavaScript helpers intentionally target common lightweight use cases.
+- Batch downloads may require browser permission for multiple file downloads.

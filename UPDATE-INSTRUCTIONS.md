@@ -1,31 +1,47 @@
-# OpenToolbox Spacing and Design Polish Update
+# OpenToolbox V5 Update Instructions
 
-This version improves spacing throughout every interactive tool and the homepage search area. It also updates the offline cache so returning visitors receive the corrected design.
+## What this package does
 
-## Included fixes
+This update expands OpenToolbox from 84 to 122 tools and adds local preferences, history, custom favourite collections, improved offline support, accessibility improvements, optional interface languages, advanced keyboard controls and automated browser tests.
 
-- Increased the space between every field label and its input, select or textarea.
-- Added consistent vertical separation between consecutive fields across all 84 tools.
-- Improved row spacing in multi-column and mobile forms.
-- Increased the space beneath the homepage search label.
-- Increased the space between the search box and category filters.
-- Audited desktop and mobile layouts for overlaps and horizontal overflow.
+## Install with GitHub Desktop
 
-# Replace Your Existing GitHub Desktop Project
+1. Back up your current local `open-browser-toolbox` folder.
+2. Extract the new ZIP.
+3. Open the extracted `open-browser-toolbox` folder.
+4. Copy every file and folder inside it.
+5. Paste them directly into your existing local repository folder.
+6. Choose **Replace the files in the destination** when Windows asks.
+7. Open GitHub Desktop and select the repository.
+8. Review the changed files.
+9. Use this commit summary:
 
-This update fixes the empty homepage and adds the supplied logo, all 84 homepage tool cards, detailed tool explanations and prominent PayPal donation buttons.
+```text
+OpenToolbox V5: 122 tools, local preferences, offline upgrades and testing
+```
 
-1. Download and extract `open-browser-toolbox-updated.zip`.
-2. Open **GitHub Desktop** and select your `open-browser-toolbox` repository.
-3. Click **Repository → Show in Explorer**.
-4. Keep the hidden `.git` folder in that repository folder.
-5. Delete the other old project files and folders from the repository folder.
-6. Copy everything **inside** the extracted `open-browser-toolbox-updated` folder into the repository folder.
-7. Return to GitHub Desktop.
-8. In **Summary**, type: `Fix homepage tool library and add new logo`
-9. Click **Commit to main**.
-10. Click **Push origin**.
-11. Open the GitHub **Actions** tab and wait for the green tick.
-12. Open `https://bryanssss.github.io/open-browser-toolbox/` and press **Ctrl + F5** to bypass the old browser/service-worker cache.
+10. Select **Commit to main**.
+11. Select **Push origin**.
+12. Open the repository’s **Actions** tab and confirm the test workflow passes.
+13. Open the GitHub Pages website and press `Ctrl + F5`.
 
-Do not copy the outer extracted folder into the repository. `index.html` must stay directly in the repository root.
+## Important folder check
+
+The repository root must contain `index.html` directly:
+
+```text
+open-browser-toolbox/
+├── index.html
+├── assets/
+├── tools/
+├── tests/
+└── .github/
+```
+
+Do not create a duplicated nested folder such as:
+
+```text
+open-browser-toolbox/open-browser-toolbox/index.html
+```
+
+For screenshots and more detail, read `GITHUB-DESKTOP-DEPLOYMENT.md`.

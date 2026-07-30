@@ -5,6 +5,8 @@
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/privacy.html</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/terms.html</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/accessibility.html</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/my-toolbox.html</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/custom-domain.html</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/word-counter/</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/character-counter/</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/case-converter/</loc></url>
@@ -89,4 +91,42 @@
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/countdown-calculator/</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/pace-calculator/</loc></url>
   <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/grease-trap-size-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/readability-checker/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/text-statistics-export/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/line-ending-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/xml-formatter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/sql-formatter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/yaml-json-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/javascript-formatter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/http-header-builder/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/csv-delimiter-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/image-format-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/batch-image-processor/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/colour-mixer/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/colour-blindness-simulator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/palette-contrast-auditor/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/image-metadata-viewer/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/svg-optimizer/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/xml-json-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/toml-json-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/date-time-format-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/data-uri-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/base64-file-converter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/savings-goal-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/debt-payoff-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/roi-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/break-even-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/date-add-subtract/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/work-hours-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/time-duration-calculator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/recurring-date-generator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/aria-label-checker/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/alt-text-checklist/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/heading-structure-checker/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/tap-target-checker/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/screen-reader-text-reviewer/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/pdf-metadata-inspector/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/pdf-page-counter/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/pdf-page-size-estimator/</loc></url>
+  <url><loc>https://bryanssss.github.io/open-browser-toolbox/tools/pdf-form-field-scanner/</loc></url>
 </urlset>

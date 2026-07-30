@@ -586,12 +586,278 @@ window.TOOLBOX_TOOLS = [
     "category": "Calculators",
     "description": "Estimate grease interceptor capacity from fixture flow.",
     "icon": "🚰"
+  },
+  {
+    "slug": "readability-checker",
+    "title": "Readability Checker",
+    "category": "Text & Content",
+    "description": "Estimate reading ease, grade level and sentence complexity.",
+    "icon": "📚"
+  },
+  {
+    "slug": "text-statistics-export",
+    "title": "Text Statistics Exporter",
+    "category": "Text & Content",
+    "description": "Analyse text and export reusable statistics as CSV or JSON.",
+    "icon": "📈"
+  },
+  {
+    "slug": "line-ending-converter",
+    "title": "Line Ending Converter",
+    "category": "Text & Content",
+    "description": "Convert text between LF, CRLF and CR line endings.",
+    "icon": "↵"
+  },
+  {
+    "slug": "xml-formatter",
+    "title": "XML Formatter",
+    "category": "Developer Tools",
+    "description": "Validate, format and minify XML locally.",
+    "icon": "🧩"
+  },
+  {
+    "slug": "sql-formatter",
+    "title": "SQL Formatter",
+    "category": "Developer Tools",
+    "description": "Format or compact common SQL queries in your browser.",
+    "icon": "🗄️"
+  },
+  {
+    "slug": "yaml-json-converter",
+    "title": "YAML to JSON Converter",
+    "category": "Developer Tools",
+    "description": "Convert simple YAML and JSON data in either direction.",
+    "icon": "🧾"
+  },
+  {
+    "slug": "javascript-formatter",
+    "title": "JavaScript Formatter",
+    "category": "Developer Tools",
+    "description": "Format or minify JavaScript without uploading source code.",
+    "icon": "JS"
+  },
+  {
+    "slug": "http-header-builder",
+    "title": "HTTP Header Builder",
+    "category": "Developer Tools",
+    "description": "Turn header lines into JSON, fetch options or curl flags.",
+    "icon": "📡"
+  },
+  {
+    "slug": "csv-delimiter-converter",
+    "title": "CSV Delimiter Converter",
+    "category": "Developer Tools",
+    "description": "Convert CSV data between comma, semicolon, tab and pipe separators.",
+    "icon": "⇄"
+  },
+  {
+    "slug": "image-format-converter",
+    "title": "Image Format Converter",
+    "category": "Design & Media",
+    "description": "Convert images locally between PNG, JPEG and WebP.",
+    "icon": "🖼️"
+  },
+  {
+    "slug": "batch-image-processor",
+    "title": "Batch Image Processor",
+    "category": "Design & Media",
+    "description": "Resize, compress and convert multiple images locally.",
+    "icon": "🗂️"
+  },
+  {
+    "slug": "colour-mixer",
+    "title": "Colour Mixer",
+    "category": "Design & Media",
+    "description": "Blend two colours by a custom percentage.",
+    "icon": "🧪"
+  },
+  {
+    "slug": "colour-blindness-simulator",
+    "title": "Colour Blindness Simulator",
+    "category": "Design & Media",
+    "description": "Preview an image with common colour-vision simulations.",
+    "icon": "👁️"
+  },
+  {
+    "slug": "palette-contrast-auditor",
+    "title": "Palette Contrast Auditor",
+    "category": "Design & Media",
+    "description": "Check every colour pair in a palette against WCAG contrast ratios.",
+    "icon": "🎛️"
+  },
+  {
+    "slug": "image-metadata-viewer",
+    "title": "Image Metadata Viewer",
+    "category": "Design & Media",
+    "description": "Inspect image dimensions, file size, type and transparency locally.",
+    "icon": "🔍"
+  },
+  {
+    "slug": "svg-optimizer",
+    "title": "SVG Optimizer",
+    "category": "Design & Media",
+    "description": "Remove comments, metadata and unnecessary whitespace from SVG.",
+    "icon": "◇"
+  },
+  {
+    "slug": "xml-json-converter",
+    "title": "XML to JSON Converter",
+    "category": "Converters",
+    "description": "Convert structured XML and JSON data in either direction.",
+    "icon": "🔁"
+  },
+  {
+    "slug": "toml-json-converter",
+    "title": "TOML to JSON Converter",
+    "category": "Converters",
+    "description": "Convert simple TOML configuration data to or from JSON.",
+    "icon": "⚙️"
+  },
+  {
+    "slug": "date-time-format-converter",
+    "title": "Date and Time Format Converter",
+    "category": "Converters",
+    "description": "Convert dates between ISO, local, UTC and Unix formats.",
+    "icon": "🕰️"
+  },
+  {
+    "slug": "data-uri-converter",
+    "title": "Data URI Converter",
+    "category": "Converters",
+    "description": "Create or decode data URIs from text and local files.",
+    "icon": "🔗"
+  },
+  {
+    "slug": "base64-file-converter",
+    "title": "Base64 File Converter",
+    "category": "Converters",
+    "description": "Encode files to Base64 or decode Base64 into a local file.",
+    "icon": "📎"
+  },
+  {
+    "slug": "savings-goal-calculator",
+    "title": "Savings Goal Calculator",
+    "category": "Calculators",
+    "description": "Estimate how long it may take to reach a savings target.",
+    "icon": "🎯"
+  },
+  {
+    "slug": "debt-payoff-calculator",
+    "title": "Debt Payoff Calculator",
+    "category": "Calculators",
+    "description": "Estimate payoff time and interest from a monthly payment.",
+    "icon": "💳"
+  },
+  {
+    "slug": "roi-calculator",
+    "title": "ROI Calculator",
+    "category": "Calculators",
+    "description": "Calculate investment return and net gain.",
+    "icon": "📊"
+  },
+  {
+    "slug": "break-even-calculator",
+    "title": "Break-Even Calculator",
+    "category": "Calculators",
+    "description": "Estimate break-even units and revenue from business costs.",
+    "icon": "⚖️"
+  },
+  {
+    "slug": "date-add-subtract",
+    "title": "Date Add or Subtract Calculator",
+    "category": "Calculators",
+    "description": "Add or subtract days, weeks, months or years from a date.",
+    "icon": "➕"
+  },
+  {
+    "slug": "work-hours-calculator",
+    "title": "Work Hours Calculator",
+    "category": "Calculators",
+    "description": "Calculate daily and weekly working time after breaks.",
+    "icon": "🧑‍💻"
+  },
+  {
+    "slug": "time-duration-calculator",
+    "title": "Time Duration Calculator",
+    "category": "Calculators",
+    "description": "Measure the exact duration between two dates and times.",
+    "icon": "⏳"
+  },
+  {
+    "slug": "recurring-date-generator",
+    "title": "Recurring Date Generator",
+    "category": "Calculators",
+    "description": "Generate repeating dates and export them as CSV or ICS.",
+    "icon": "🔁"
+  },
+  {
+    "slug": "aria-label-checker",
+    "title": "Accessible Name Checker",
+    "category": "Accessibility",
+    "description": "Find interactive HTML elements without accessible names.",
+    "icon": "🏷️"
+  },
+  {
+    "slug": "alt-text-checklist",
+    "title": "Image Alt Text Checklist",
+    "category": "Accessibility",
+    "description": "Review image alt attributes and common alt-text issues.",
+    "icon": "🖼️"
+  },
+  {
+    "slug": "heading-structure-checker",
+    "title": "Heading Structure Checker",
+    "category": "Accessibility",
+    "description": "Review H1–H6 hierarchy and detect skipped heading levels.",
+    "icon": "H1"
+  },
+  {
+    "slug": "tap-target-checker",
+    "title": "Tap Target Size Checker",
+    "category": "Accessibility",
+    "description": "Review declared interactive control sizes against touch guidance.",
+    "icon": "👆"
+  },
+  {
+    "slug": "screen-reader-text-reviewer",
+    "title": "Screen Reader Text Reviewer",
+    "category": "Accessibility",
+    "description": "Find vague links, empty controls and hidden focusable elements.",
+    "icon": "🔊"
+  },
+  {
+    "slug": "pdf-metadata-inspector",
+    "title": "PDF Metadata Inspector",
+    "category": "PDF Tools",
+    "description": "Inspect readable PDF metadata locally without uploading the file.",
+    "icon": "📄"
+  },
+  {
+    "slug": "pdf-page-counter",
+    "title": "PDF Page Counter",
+    "category": "PDF Tools",
+    "description": "Estimate the number of pages in a local PDF file.",
+    "icon": "🔢"
+  },
+  {
+    "slug": "pdf-page-size-estimator",
+    "title": "PDF Page Size Inspector",
+    "category": "PDF Tools",
+    "description": "Find readable PDF MediaBox dimensions in points, inches and millimetres.",
+    "icon": "📐"
+  },
+  {
+    "slug": "pdf-form-field-scanner",
+    "title": "PDF Form Field Scanner",
+    "category": "PDF Tools",
+    "description": "Scan a PDF for readable form-field types and names locally.",
+    "icon": "📝"
   }
 ];
 window.TOOLBOX_CATEGORIES = {
   "Text & Content": [
     "✍️",
-    "Write, clean, analyse and transform text directly in your browser."
+    "Write, clean, compare and analyse text directly in your browser."
   ],
   "Developer Tools": [
     "🧰",
@@ -599,14 +865,22 @@ window.TOOLBOX_CATEGORIES = {
   ],
   "Design & Media": [
     "🎨",
-    "Work with colours, images, layouts and shareable graphics."
+    "Work with colours, images, SVG files and shareable graphics."
   ],
   "Converters": [
     "🔄",
-    "Convert measurements, formats, time zones and number systems."
+    "Convert measurements, files, formats, dates and structured data."
   ],
   "Calculators": [
     "🧮",
-    "Fast calculators for money, dates, health, study and everyday planning."
+    "Fast calculators for money, dates, study, planning and everyday work."
+  ],
+  "Accessibility": [
+    "♿",
+    "Review common accessibility issues with practical browser-based checks."
+  ],
+  "PDF Tools": [
+    "📑",
+    "Inspect PDF structure and metadata locally without uploading documents."
   ]
 };

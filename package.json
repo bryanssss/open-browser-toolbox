@@ -1,0 +1,15 @@
+{
+  "name": "open-browser-toolbox-tests",
+  "private": true,
+  "version": "5.0.0",
+  "description": "Optional automated tests for the static OpenToolbox website.",
+  "type": "module",
+  "scripts": {
+    "test:static": "node test-site.mjs",
+    "test:browser": "playwright test",
+    "test": "npm run test:static && npm run test:browser"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0"
+  }
+}
